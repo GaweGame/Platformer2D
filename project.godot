@@ -74,6 +74,14 @@ lari_cepat={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Hero"
+2d_physics/layer_2="Level"
+2d_physics/layer_3="Musuh"
+2d_physics/layer_4="Barang"
+2d_physics/layer_5="ZonaJatuh"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
