@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://TilesetPadat.tres" type="TileSet" id=1]
 [ext_resource path="res://Hero.gd" type="Script" id=2]
@@ -23,15 +23,25 @@
 [ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" type="Texture" id=21]
 [ext_resource path="res://Level1.gd" type="Script" id=22]
 [ext_resource path="res://TilesetTembus.tres" type="TileSet" id=23]
+[ext_resource path="res://assets/Palm Tree Island/Background/BG Image.png" type="Texture" id=24]
+[ext_resource path="res://assets/Palm Tree Island/Background/Additional Sky.png" type="Texture" id=25]
+[ext_resource path="res://assets/Palm Tree Island/Background/Additional Water.png" type="Texture" id=26]
+[ext_resource path="res://assets/Palm Tree Island/Background/Big Clouds.png" type="Texture" id=27]
+[ext_resource path="res://assets/Palm Tree Island/Background/Small Cloud 1.png" type="Texture" id=28]
 
-[sub_resource type="RectangleShape2D" id=52]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 10 )
 
-[sub_resource type="SpriteFrames" id=49]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 8 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "Lompat",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "Lari",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -39,10 +49,10 @@ animations = [ {
 "name": "LariCepat",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "Lari",
-"speed": 12.0
+"frames": [ ExtResource( 16 ) ],
+"loop": false,
+"name": "Jatuh",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 11 ) ],
 "loop": true,
@@ -53,17 +63,12 @@ animations = [ {
 "loop": false,
 "name": "Terluka",
 "speed": 12.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": false,
-"name": "Jatuh",
-"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=50]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 10 )
 
-[sub_resource type="RectangleShape2D" id=51]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 414, 22 )
 
 [node name="Level1" type="Node2D"]
@@ -90,12 +95,12 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapTembus/StaticBody2D"]
 position = Vector2( 192, 138 )
-shape = SubResource( 52 )
+shape = SubResource( 1 )
 one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMapTembus/StaticBody2D"]
 position = Vector2( 384, 138 )
-shape = SubResource( 52 )
+shape = SubResource( 1 )
 one_way_collision = true
 
 [node name="Hero" type="KinematicBody2D" parent="."]
@@ -104,12 +109,12 @@ collision_mask = 30
 script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Hero"]
-frames = SubResource( 49 )
+frames = SubResource( 2 )
 animation = "LariCepat"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hero"]
 position = Vector2( 0, 2 )
-shape = SubResource( 50 )
+shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="Hero"]
 current = true
@@ -140,6 +145,63 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaJatuh"]
-shape = SubResource( 51 )
+shape = SubResource( 4 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Langit" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_offset = Vector2( 0, -140 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Langit"]
+position = Vector2( 0, 128 )
+texture = ExtResource( 24 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/Langit"]
+scale = Vector2( 12, 4 )
+texture = ExtResource( 25 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="ParallaxBackground/Langit"]
+position = Vector2( 0, 256 )
+scale = Vector2( 12, 2.75 )
+texture = ExtResource( 26 )
+centered = false
+
+[node name="AwanBesar" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 0.5 )
+motion_offset = Vector2( 0, -100 )
+motion_mirroring = Vector2( 448, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/AwanBesar"]
+modulate = Color( 1, 1, 1, 0.462745 )
+position = Vector2( 0, 96 )
+texture = ExtResource( 27 )
+centered = false
+
+[node name="AwanKecil" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.7, 0.7 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/AwanKecil"]
+position = Vector2( 280, 48 )
+texture = ExtResource( 28 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/AwanKecil"]
+position = Vector2( 48, 64 )
+texture = ExtResource( 28 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="ParallaxBackground/AwanKecil"]
+position = Vector2( 472, 88 )
+texture = ExtResource( 28 )
+centered = false
+
+[node name="Sprite4" type="Sprite" parent="ParallaxBackground/AwanKecil"]
+position = Vector2( 704, 64 )
+texture = ExtResource( 28 )
+centered = false
 [connection signal="timeout" from="Hero/Timer" to="Hero" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="ZonaJatuh" to="." method="_on_ZonaJatuh_body_entered"]
