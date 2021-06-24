@@ -6,6 +6,7 @@ var laju = laju_normal
 var kecepatan = Vector2.ZERO
 var laju_lompat = -380
 var gravitasi = 12
+var koin = 0
 
 onready var sprite = $Sprite
 
@@ -55,3 +56,8 @@ func lari_cepat():
 
 func _on_Timer_timeout():
 	laju = laju_normal
+
+
+func ambil_koin():
+	koin = koin + 1
+	print(" KOIN: ", koin)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://TilesetPadat.tres" type="TileSet" id=1]
 [ext_resource path="res://Hero.gd" type="Script" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://assets/Palm Tree Island/Background/Additional Water.png" type="Texture" id=26]
 [ext_resource path="res://assets/Palm Tree Island/Background/Big Clouds.png" type="Texture" id=27]
 [ext_resource path="res://assets/Palm Tree Island/Background/Small Cloud 1.png" type="Texture" id=28]
+[ext_resource path="res://Koin.tscn" type="PackedScene" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 10 )
@@ -44,16 +45,6 @@ animations = [ {
 "name": "Lari",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "LariCepat",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": false,
-"name": "Jatuh",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Diam",
@@ -63,6 +54,16 @@ animations = [ {
 "loop": false,
 "name": "Terluka",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": false,
+"name": "Jatuh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "LariCepat",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -203,5 +204,76 @@ centered = false
 position = Vector2( 704, 64 )
 texture = ExtResource( 28 )
 centered = false
+
+[node name="GrupKoin" type="Node2D" parent="."]
+
+[node name="Koin" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 161, 208 )
+
+[node name="Koin4" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 353, 208 )
+
+[node name="Koin5" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 385, 208 )
+
+[node name="Koin6" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 417, 208 )
+
+[node name="Koin7" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 441, 48 )
+
+[node name="Koin8" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 465, 48 )
+
+[node name="Koin9" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 489, 48 )
+
+[node name="Koin10" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 641, 144 )
+
+[node name="Koin11" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 673, 144 )
+
+[node name="Koin12" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 657, 120 )
+
+[node name="Koin13" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 641, 96 )
+
+[node name="Koin14" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 673, 96 )
+
+[node name="Koin15" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 785, 112 )
+
+[node name="Koin16" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 785, 88 )
+
+[node name="Koin17" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 785, 64 )
+
+[node name="Koin18" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 1009, 80 )
+
+[node name="Koin19" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 985, 80 )
+
+[node name="Koin20" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 961, 80 )
+
+[node name="Koin21" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 913, 208 )
+
+[node name="Koin22" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 929, 184 )
+
+[node name="Koin23" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 945, 160 )
+
+[node name="Koin2" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 193, 208 )
+
+[node name="Koin3" parent="GrupKoin" instance=ExtResource( 29 )]
+position = Vector2( 225, 208 )
 [connection signal="timeout" from="Hero/Timer" to="Hero" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="ZonaJatuh" to="." method="_on_ZonaJatuh_body_entered"]
