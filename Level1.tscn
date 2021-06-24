@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://TilesetPadat.tres" type="TileSet" id=1]
 [ext_resource path="res://Hero.gd" type="Script" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://assets/Palm Tree Island/Background/Big Clouds.png" type="Texture" id=27]
 [ext_resource path="res://assets/Palm Tree Island/Background/Small Cloud 1.png" type="Texture" id=28]
 [ext_resource path="res://Koin.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Musuh.tscn" type="PackedScene" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 10 )
@@ -40,10 +41,10 @@ animations = [ {
 "name": "Lompat",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 20 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "Lari",
-"speed": 12.0
+"name": "LariCepat",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 11 ) ],
 "loop": true,
@@ -60,10 +61,10 @@ animations = [ {
 "name": "Jatuh",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 20 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "LariCepat",
-"speed": 5.0
+"name": "Lari",
+"speed": 12.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -275,5 +276,15 @@ position = Vector2( 193, 208 )
 
 [node name="Koin3" parent="GrupKoin" instance=ExtResource( 29 )]
 position = Vector2( 225, 208 )
+
+[node name="GrupMusuh" type="Node2D" parent="."]
+
+[node name="Musuh" parent="GrupMusuh" instance=ExtResource( 30 )]
+position = Vector2( 65, 208 )
+arah = -1
+
+[node name="Musuh2" parent="GrupMusuh" instance=ExtResource( 30 )]
+position = Vector2( 161, 112 )
+arah = -1
 [connection signal="timeout" from="Hero/Timer" to="Hero" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="ZonaJatuh" to="." method="_on_ZonaJatuh_body_entered"]
