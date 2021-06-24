@@ -5,14 +5,18 @@ var laju = 20
 var kecepatan = Vector2.ZERO
 export var arah = 1
 
+onready var pivot = $Pivot
+onready var raycast = $Pivot/RayCast2D
+
 func _ready():
 	pass
 
 func _physics_process(delta):
 	kecepatan.y += gravitasi
 	
-	if is_on_wall():
+	if is_on_wall() or not raycast.is_colliding():
 		arah = arah * -1
+		pivot.scale.x = pivot.scale.x * -1
 	
 	kecepatan.x = laju * arah
 	
