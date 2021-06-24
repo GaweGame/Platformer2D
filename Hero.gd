@@ -8,8 +8,12 @@ var laju_lompat = -380
 var gravitasi = 12
 var koin = 0
 var sedang_terluka = false
+var health_maks = 200
+var health = 200
 
 onready var sprite = $Sprite
+
+signal hero_apdet_health(value)
 
 func _physics_process(delta):
 	kecepatan.y = kecepatan.y + gravitasi
@@ -67,10 +71,26 @@ func ambil_koin():
 
 func terluka():
 	sedang_terluka = true
-	sprite.play("Terluka")
+	
+	health -= 15
+	emit_signal("hero_apdet_health", (float(health)/float(health_maks)) * 100)
+	
 	if kecepatan.x > 0:
 		kecepatan.x = -500
 	else:
 		kecepatan.x = 500
+	
+	sprite.play("Terluka")
 	yield(get_tree().create_timer(1), "timeout")
-	sedang_terluka = false
+	
+	if health <= 0:
+		mati()
+	else:
+		sedang_terluka = false
+
+func mati():
+	sprite.play("Mati")
+	set_collision_layer_bit(0, false)
+	set_collision_mask_bit(2, false)
+	yield(get_tree().create_timer(1), "timeout")
+	get_tree().change_scene("res://Level1.tscn")

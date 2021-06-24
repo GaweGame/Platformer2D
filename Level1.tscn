@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://TilesetPadat.tres" type="TileSet" id=1]
 [ext_resource path="res://Hero.gd" type="Script" id=2]
@@ -30,6 +30,13 @@
 [ext_resource path="res://assets/Palm Tree Island/Background/Small Cloud 1.png" type="Texture" id=28]
 [ext_resource path="res://Koin.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Musuh.tscn" type="PackedScene" id=30]
+[ext_resource path="res://assets/Wood and Paper UI/Life Bars/Big Bars/1.png" type="Texture" id=31]
+[ext_resource path="res://assets/Wood and Paper UI/Life Bars/Big Bars/4.png" type="Texture" id=32]
+[ext_resource path="res://assets/Wood and Paper UI/Life Bars/Colors/1.png" type="Texture" id=33]
+[ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 01.png" type="Texture" id=34]
+[ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 02.png" type="Texture" id=35]
+[ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 04.png" type="Texture" id=36]
+[ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 03.png" type="Texture" id=37]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 10 )
@@ -40,11 +47,6 @@ animations = [ {
 "loop": false,
 "name": "Terluka",
 "speed": 12.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "LariCepat",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 20 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ) ],
 "loop": true,
@@ -64,6 +66,16 @@ animations = [ {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Diam",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "LariCepat",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 37 ), ExtResource( 36 ) ],
+"loop": false,
+"name": "Mati",
 "speed": 12.0
 } ]
 
@@ -112,7 +124,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Hero"]
 frames = SubResource( 2 )
-animation = "LariCepat"
+animation = "Mati"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hero"]
 position = Vector2( 0, 2 )
@@ -288,5 +300,49 @@ stamina = 2
 position = Vector2( 161, 112 )
 arah = -1
 stamina = 5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="Control" parent="CanvasLayer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 77.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HealthBar"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HealthBar/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 40.0
+texture = ExtResource( 31 )
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HealthBar/HBoxContainer"]
+margin_left = 32.0
+margin_right = 64.0
+margin_bottom = 40.0
+texture = ExtResource( 32 )
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer/HealthBar"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 60.0
+margin_bottom = 16.0
+value = 100.0
+texture_progress = ExtResource( 33 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="hero_apdet_health" from="Hero" to="." method="_on_Hero_hero_apdet_health"]
 [connection signal="timeout" from="Hero/Timer" to="Hero" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="ZonaJatuh" to="." method="_on_ZonaJatuh_body_entered"]
