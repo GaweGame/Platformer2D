@@ -32,3 +32,8 @@ func _update_animasi():
 	$AnimatedSprite.flip_h = true
 	if arah == -1:
 		$AnimatedSprite.flip_h = false
+
+
+func _on_DeteksiSamping_body_entered(body):
+	if body.name == 'Hero':
+		body.terluka()

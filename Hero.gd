@@ -7,27 +7,29 @@ var kecepatan = Vector2.ZERO
 var laju_lompat = -380
 var gravitasi = 12
 var koin = 0
+var sedang_terluka = false
 
 onready var sprite = $Sprite
 
 func _physics_process(delta):
 	kecepatan.y = kecepatan.y + gravitasi
 	
-	if(Input.is_action_pressed("gerak_kanan")):
+	if(not sedang_terluka and Input.is_action_pressed("gerak_kanan")):
 		kecepatan.x = laju
-	if(Input.is_action_pressed("gerak_kiri")):
+	if(not sedang_terluka and Input.is_action_pressed("gerak_kiri")):
 		kecepatan.x = -laju
 	
-	if(Input.is_action_just_pressed("lari_cepat")):
+	if(not sedang_terluka and Input.is_action_just_pressed("lari_cepat")):
 		lari_cepat()
 	
-	if(Input.is_action_pressed("lompat") and is_on_floor()):
+	if(not sedang_terluka and Input.is_action_pressed("lompat") and is_on_floor()):
 		kecepatan.y = laju_lompat
 	
 	kecepatan.x = lerp(kecepatan.x, 0, 0.2)
 	kecepatan = move_and_slide(kecepatan, Vector2.UP)
 	
-	update_animasi()
+	if not sedang_terluka:
+		update_animasi()
 
 func update_animasi():
 	if is_on_floor():
@@ -61,3 +63,14 @@ func _on_Timer_timeout():
 func ambil_koin():
 	koin = koin + 1
 	print(" KOIN: ", koin)
+
+
+func terluka():
+	sedang_terluka = true
+	sprite.play("Terluka")
+	if kecepatan.x > 0:
+		kecepatan.x = -500
+	else:
+		kecepatan.x = 500
+	yield(get_tree().create_timer(1), "timeout")
+	sedang_terluka = false
