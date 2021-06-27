@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://TilesetPadat.tres" type="TileSet" id=1]
 [ext_resource path="res://Hero.gd" type="Script" id=2]
@@ -37,6 +37,10 @@
 [ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 02.png" type="Texture" id=35]
 [ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 04.png" type="Texture" id=36]
 [ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 03.png" type="Texture" id=37]
+[ext_resource path="res://assets/Pirate Treasure/Gold Coin/01.png" type="Texture" id=38]
+[ext_resource path="res://assets/Wood and Paper UI/Small Banner/1.png" type="Texture" id=39]
+[ext_resource path="res://assets/Wood and Paper UI/Small Banner/13.png" type="Texture" id=40]
+[ext_resource path="res://assets/Folks-Normal.ttf" type="DynamicFontData" id=41]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 10 )
@@ -48,24 +52,14 @@ animations = [ {
 "name": "Terluka",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 20 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "Lari",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": false,
-"name": "Jatuh",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ), ExtResource( 8 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "Lompat",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 20 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "Diam",
+"name": "Lari",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -73,10 +67,20 @@ animations = [ {
 "name": "LariCepat",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Diam",
+"speed": 12.0
+}, {
 "frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 37 ), ExtResource( 36 ) ],
 "loop": false,
 "name": "Mati",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": false,
+"name": "Jatuh",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -84,6 +88,10 @@ extents = Vector2( 8, 10 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 414, 22 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 10
+font_data = ExtResource( 41 )
 
 [node name="Level1" type="Node2D"]
 position = Vector2( -1, 0 )
@@ -343,6 +351,51 @@ nine_patch_stretch = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CoinBar" type="Control" parent="CanvasLayer"]
+margin_left = 256.0
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CoinBar"]
+margin_right = 64.0
+margin_bottom = 32.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CoinBar/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 39 )
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/CoinBar/HBoxContainer"]
+margin_left = 32.0
+margin_right = 64.0
+margin_bottom = 32.0
+texture = ExtResource( 40 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CoinBar"]
+margin_left = 18.0
+margin_top = 6.0
+margin_right = 34.0
+margin_bottom = 22.0
+texture = ExtResource( 38 )
+
+[node name="Label" type="Label" parent="CanvasLayer/CoinBar"]
+margin_left = 34.0
+margin_top = 10.0
+margin_right = 60.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
 [connection signal="hero_apdet_health" from="Hero" to="." method="_on_Hero_hero_apdet_health"]
+[connection signal="hero_apdet_koin" from="Hero" to="." method="_on_Hero_hero_apdet_koin"]
 [connection signal="timeout" from="Hero/Timer" to="Hero" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="ZonaJatuh" to="." method="_on_ZonaJatuh_body_entered"]

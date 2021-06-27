@@ -14,6 +14,7 @@ var health = 200
 onready var sprite = $Sprite
 
 signal hero_apdet_health(value)
+signal hero_apdet_koin(value)
 
 func _physics_process(delta):
 	kecepatan.y = kecepatan.y + gravitasi
@@ -66,7 +67,8 @@ func _on_Timer_timeout():
 
 func ambil_koin():
 	koin = koin + 1
-	print(" KOIN: ", koin)
+#	print(" KOIN: ", koin)
+	emit_signal("hero_apdet_koin", koin)
 
 
 func terluka():
