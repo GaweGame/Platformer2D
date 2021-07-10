@@ -1,5 +1,7 @@
 extends Node2D
 
+signal hero_mati
+
 onready var health_progress = $CanvasLayer/HealthBar/TextureProgress
 onready var jumlah_koin = $CanvasLayer/CoinBar/Label
 

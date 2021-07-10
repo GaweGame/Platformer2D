@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=2]
+
+[ext_resource path="res://assets/Wood and Paper UI/Yellow Button/1.png" type="Texture" id=1]
+
+[resource]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 14, 14 )
+margin_left = 3.08429
+margin_right = 2.95578
+margin_top = 2.95578
+margin_bottom = 5.01198

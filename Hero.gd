@@ -8,8 +8,8 @@ var laju_lompat = -380
 var gravitasi = 12
 var koin = 0
 var sedang_terluka = false
-var health_maks = 200
-var health = 200
+var health_maks = 50
+var health = 50
 
 onready var sprite = $Sprite
 
@@ -95,4 +95,4 @@ func mati():
 	set_collision_layer_bit(0, false)
 	set_collision_mask_bit(2, false)
 	yield(get_tree().create_timer(1), "timeout")
-	get_tree().change_scene("res://Level1.tscn")
+	get_parent().emit_signal("hero_mati")
