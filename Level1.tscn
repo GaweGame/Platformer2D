@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://TilesetPadat.tres" type="TileSet" id=1]
 [ext_resource path="res://Hero.gd" type="Script" id=2]
@@ -45,6 +45,7 @@
 [ext_resource path="res://assets/Wood and Paper UI/Prefabs/6.png" type="Texture" id=43]
 [ext_resource path="res://TombolFont.tres" type="DynamicFont" id=44]
 [ext_resource path="res://PopupKalah.gd" type="Script" id=45]
+[ext_resource path="res://PopupMenang.gd" type="Script" id=46]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 10 )
@@ -55,21 +56,6 @@ animations = [ {
 "loop": false,
 "name": "Terluka",
 "speed": 12.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "Lari",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 8 ), ExtResource( 12 ) ],
-"loop": false,
-"name": "Lompat",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": false,
-"name": "Jatuh",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 11 ) ],
 "loop": true,
@@ -84,6 +70,21 @@ animations = [ {
 "frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 37 ), ExtResource( 36 ) ],
 "loop": false,
 "name": "Mati",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": false,
+"name": "Jatuh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 8 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "Lompat",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "Lari",
 "speed": 12.0
 } ]
 
@@ -235,75 +236,121 @@ position = Vector2( 704, 64 )
 texture = ExtResource( 28 )
 centered = false
 
-[node name="GrupKoin" type="Node2D" parent="."]
+[node name="TempatKoin" type="Node2D" parent="."]
 
-[node name="Koin" parent="GrupKoin" instance=ExtResource( 29 )]
-position = Vector2( 161, 208 )
+[node name="Koin" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
+position = Vector2( 178, 208 )
 
-[node name="Koin4" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin4" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 353, 208 )
 
-[node name="Koin5" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin5" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 385, 208 )
 
-[node name="Koin6" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin6" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 417, 208 )
 
-[node name="Koin7" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin7" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 441, 48 )
 
-[node name="Koin8" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin8" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 465, 48 )
 
-[node name="Koin9" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin9" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 489, 48 )
 
-[node name="Koin10" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin10" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 641, 144 )
 
-[node name="Koin11" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin11" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 673, 144 )
 
-[node name="Koin12" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin12" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 657, 120 )
 
-[node name="Koin13" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin13" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 641, 96 )
 
-[node name="Koin14" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin14" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 673, 96 )
 
-[node name="Koin15" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin15" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 785, 112 )
 
-[node name="Koin16" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin16" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 785, 88 )
 
-[node name="Koin17" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin17" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 785, 64 )
 
-[node name="Koin18" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin18" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 1009, 80 )
 
-[node name="Koin19" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin19" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 985, 80 )
 
-[node name="Koin20" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin20" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 961, 80 )
 
-[node name="Koin21" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin21" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 913, 208 )
 
-[node name="Koin22" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin22" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 929, 184 )
 
-[node name="Koin23" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin23" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 945, 160 )
 
-[node name="Koin2" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin2" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 193, 208 )
 
-[node name="Koin3" parent="GrupKoin" instance=ExtResource( 29 )]
+[node name="Koin3" parent="TempatKoin" groups=[
+"GrupKoin",
+] instance=ExtResource( 29 )]
 position = Vector2( 225, 208 )
 
 [node name="GrupMusuh" type="Node2D" parent="."]
@@ -406,6 +453,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 
 [node name="PopupKalah" type="CenterContainer" parent="CanvasLayer"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -465,9 +513,58 @@ text = "Keluar"
 
 [node name="Tween" type="Tween" parent="CanvasLayer/PopupKalah"]
 
-[connection signal="hero_mati" from="." to="CanvasLayer/PopupKalah" method="_on_Level1_hero_mati"]
+[node name="PopupMenang" type="CenterContainer" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -250.0
+margin_right = 64.0
+margin_bottom = -122.0
+script = ExtResource( 46 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PopupMenang"]
+margin_right = 128.0
+margin_bottom = 128.0
+texture = ExtResource( 43 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PopupMenang"]
+margin_left = 27.0
+margin_top = 37.0
+margin_right = 101.0
+margin_bottom = 91.0
+custom_constants/separation = 8
+
+[node name="Label" type="Label" parent="CanvasLayer/PopupMenang/VBoxContainer"]
+margin_right = 74.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 6 )
+text = "Yay, Menang!"
+
+[node name="TmblKeluar" type="Button" parent="CanvasLayer/PopupMenang/VBoxContainer"]
+margin_top = 28.0
+margin_right = 74.0
+margin_bottom = 54.9678
+custom_styles/hover = ExtResource( 42 )
+custom_styles/pressed = ExtResource( 42 )
+custom_styles/focus = ExtResource( 42 )
+custom_styles/disabled = ExtResource( 42 )
+custom_styles/normal = ExtResource( 42 )
+custom_fonts/font = ExtResource( 44 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Selanjutnya"
+
+[node name="Tween" type="Tween" parent="CanvasLayer/PopupMenang"]
+
 [connection signal="hero_apdet_health" from="Hero" to="." method="_on_Hero_hero_apdet_health"]
 [connection signal="hero_apdet_koin" from="Hero" to="." method="_on_Hero_hero_apdet_koin"]
+[connection signal="hero_mati" from="Hero" to="CanvasLayer/PopupKalah" method="_on_Hero_hero_mati"]
+[connection signal="hero_menang" from="Hero" to="CanvasLayer/PopupMenang" method="_on_Hero_hero_menang"]
 [connection signal="timeout" from="Hero/Timer" to="Hero" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="ZonaJatuh" to="." method="_on_ZonaJatuh_body_entered"]
 [connection signal="pressed" from="CanvasLayer/PopupKalah/VBoxContainer/TmblUlangi" to="CanvasLayer/PopupKalah" method="_on_TmblUlangi_pressed"]

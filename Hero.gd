@@ -13,6 +13,8 @@ var health = 50
 
 onready var sprite = $Sprite
 
+signal hero_mati
+signal hero_menang
 signal hero_apdet_health(value)
 signal hero_apdet_koin(value)
 
@@ -69,7 +71,14 @@ func ambil_koin():
 	koin = koin + 1
 #	print(" KOIN: ", koin)
 	emit_signal("hero_apdet_koin", koin)
-
+	# Cek jumlah koin
+	var grup_koin = get_tree().get_nodes_in_group("GrupKoin")
+	var jumlah_koin = grup_koin.size()
+	print(" GRUP KOIN: ", grup_koin)
+	print(" JUMLAH: ", jumlah_koin)
+	# Kalau habis, panggil signal hero_menang
+	if jumlah_koin == 0:
+		emit_signal("hero_menang")
 
 func terluka():
 	sedang_terluka = true
@@ -95,4 +104,4 @@ func mati():
 	set_collision_layer_bit(0, false)
 	set_collision_mask_bit(2, false)
 	yield(get_tree().create_timer(1), "timeout")
-	get_parent().emit_signal("hero_mati")
+	emit_signal("hero_mati")
