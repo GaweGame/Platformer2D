@@ -11,12 +11,23 @@ var sedang_terluka = false
 var health_maks = 50
 var health = 50
 
+var bawa_pedang = false
+var sedang_serang = false
+var animasi_dengan_pedang = preload("res://karakter/HeroDenganPedang.tres")
+
 onready var sprite = $Sprite
 
 signal hero_mati
 signal hero_menang
 signal hero_apdet_health(value)
 signal hero_apdet_koin(value)
+
+func _input(event):
+	if event is InputEventKey and event.is_action_pressed("serang") and bawa_pedang:
+		sedang_serang = true
+		sprite.play("Serang")
+		yield(sprite, "animation_finished")
+		sedang_serang = false
 
 func _physics_process(delta):
 	kecepatan.y = kecepatan.y + gravitasi
@@ -35,7 +46,7 @@ func _physics_process(delta):
 	kecepatan.x = lerp(kecepatan.x, 0, 0.2)
 	kecepatan = move_and_slide(kecepatan, Vector2.UP)
 	
-	if not sedang_terluka:
+	if not sedang_terluka and not sedang_serang:
 		update_animasi()
 
 func update_animasi():
@@ -104,3 +115,8 @@ func mati():
 	set_collision_mask_bit(2, false)
 	yield(get_tree().create_timer(1), "timeout")
 	emit_signal("hero_mati")
+
+func ambil_pedang():
+	if not bawa_pedang:
+		bawa_pedang = true
+		sprite.frames = animasi_dengan_pedang
