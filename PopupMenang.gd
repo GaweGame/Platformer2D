@@ -14,3 +14,7 @@ func muncul():
 
 func _on_Hero_hero_menang():
 	muncul()
+
+
+func _on_TmblKeluar_pressed():
+	SceneManager.change_scene("res://Title.tscn")

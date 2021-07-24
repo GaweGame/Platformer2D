@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://TilesetPadat.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/Palm Tree Island/Background/BG Image.png" type="Texture" id=2]
+[ext_resource path="res://assets/Palm Tree Island/Background/Big Clouds.png" type="Texture" id=3]
+[ext_resource path="res://assets/Palm Tree Island/Background/Additional Sky.png" type="Texture" id=4]
+[ext_resource path="res://Musuh.tscn" type="PackedScene" id=5]
+[ext_resource path="res://TombolPopup.tres" type="StyleBox" id=6]
+[ext_resource path="res://TombolFont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/Wood and Paper UI/Prefabs/8.png" type="Texture" id=8]
+[ext_resource path="res://assets/Folks-Normal.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://VBoxContainer.gd" type="Script" id=10]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 96, 96 )
+margin_left = 28.8101
+margin_right = 26.2861
+margin_top = 29.1794
+margin_bottom = 29.2903
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 9 )
+
+[node name="Title" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 2
+collision_mask = 4
+format = 1
+tile_data = PoolIntArray( -1, 4, 0, -65536, 4, 0, -65535, 4, 0, -65534, 4, 0, -65533, 4, 0, -65532, 4, 0, -65531, 4, 0, -65530, 4, 0, 65535, 4, 0, 0, 15, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 6, 8, 0, 131071, 4, 0, 65536, 5, 0, 196607, 4, 0, 131072, 5, 0, 131077, 12, 0, 131078, 13, 0, 131079, 13, 0, 131080, 14, 0, 262143, 4, 0, 196608, 5, 0, 327679, 4, 0, 262144, 5, 0, 393215, 4, 0, 327680, 5, 0, 327687, 0, 0, 327688, 1, 0, 327689, 1, 0, 458751, 4, 0, 393216, 5, 0, 393223, 3, 0, 393224, 4, 0, 393225, 4, 0, 524287, 4, 0, 458752, 17, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 18, 0, 458760, 4, 0, 458761, 4, 0 )
+
+[node name="BG Image" type="Sprite" parent="."]
+position = Vector2( 160, 160 )
+scale = Vector2( 0.833333, 1 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="Additional Sky" type="Sprite" parent="."]
+position = Vector2( 160, 48 )
+scale = Vector2( 10, 3 )
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="Big Clouds" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.509804 )
+position = Vector2( 224, 72 )
+z_index = -1
+texture = ExtResource( 3 )
+
+[node name="Musuh" parent="." instance=ExtResource( 5 )]
+position = Vector2( 192, 48 )
+arah = -1
+
+[node name="Musuh2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 256, 144 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+margin_left = 72.0
+margin_top = 120.0
+margin_right = 136.0
+margin_bottom = 200.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TombolMain" type="Button" parent="CanvasLayer/VBoxContainer"]
+margin_right = 64.0
+margin_bottom = 26.9678
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Main"
+
+[node name="TombolTentang" type="Button" parent="CanvasLayer/VBoxContainer"]
+margin_top = 30.0
+margin_right = 64.0
+margin_bottom = 56.9678
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tentang"
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+margin_left = 40.0
+margin_top = 48.0
+margin_right = 168.0
+margin_bottom = 120.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 96.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Treasure
+Hunter"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/TombolMain" to="CanvasLayer/VBoxContainer" method="_on_TombolMain_pressed"]

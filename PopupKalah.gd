@@ -12,9 +12,13 @@ func muncul():
 	tween.start()
 
 func _on_TmblUlangi_pressed():
-	get_tree().change_scene("res://Level1.tscn")
+	SceneManager.change_scene("res://Level1.tscn")
 
 func _on_Hero_hero_mati():
 	if not sudah_muncul:
 		sudah_muncul = true
 		muncul()
+
+
+func _on_TmblKeluar_pressed():
+	SceneManager.change_scene("res://Title.tscn")
