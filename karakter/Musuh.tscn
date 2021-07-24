@@ -22,7 +22,7 @@
 [ext_resource path="res://assets/Fierce Tooth/08-Hit/Hit 03.png" type="Texture" id=20]
 [ext_resource path="res://assets/Fierce Tooth/08-Hit/Hit 04.png" type="Texture" id=21]
 [ext_resource path="res://assets/Fierce Tooth/03-Jump/Jump 01.png" type="Texture" id=22]
-[ext_resource path="res://Musuh.gd" type="Script" id=23]
+[ext_resource path="res://karakter/Musuh.gd" type="Script" id=23]
 [ext_resource path="res://assets/Fierce Tooth/10-Dead Ground/Dead Ground 04.png" type="Texture" id=24]
 [ext_resource path="res://assets/Fierce Tooth/10-Dead Ground/Dead Ground 01.png" type="Texture" id=25]
 [ext_resource path="res://assets/Fierce Tooth/10-Dead Ground/Dead Ground 02.png" type="Texture" id=26]

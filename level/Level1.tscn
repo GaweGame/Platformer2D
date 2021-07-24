@@ -1,7 +1,7 @@
 [gd_scene load_steps=53 format=2]
 
-[ext_resource path="res://TilesetPadat.tres" type="TileSet" id=1]
-[ext_resource path="res://Hero.gd" type="Script" id=2]
+[ext_resource path="res://level/TilesetPadat.tres" type="TileSet" id=1]
+[ext_resource path="res://karakter/Hero.gd" type="Script" id=2]
 [ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" type="Texture" id=3]
 [ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 03.png" type="Texture" id=4]
 [ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 01.png" type="Texture" id=5]
@@ -21,15 +21,15 @@
 [ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" type="Texture" id=19]
 [ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 01.png" type="Texture" id=20]
 [ext_resource path="res://assets/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" type="Texture" id=21]
-[ext_resource path="res://Level1.gd" type="Script" id=22]
-[ext_resource path="res://TilesetTembus.tres" type="TileSet" id=23]
+[ext_resource path="res://level/Level1.gd" type="Script" id=22]
+[ext_resource path="res://level/TilesetTembus.tres" type="TileSet" id=23]
 [ext_resource path="res://assets/Palm Tree Island/Background/BG Image.png" type="Texture" id=24]
 [ext_resource path="res://assets/Palm Tree Island/Background/Additional Sky.png" type="Texture" id=25]
 [ext_resource path="res://assets/Palm Tree Island/Background/Additional Water.png" type="Texture" id=26]
 [ext_resource path="res://assets/Palm Tree Island/Background/Big Clouds.png" type="Texture" id=27]
 [ext_resource path="res://assets/Palm Tree Island/Background/Small Cloud 1.png" type="Texture" id=28]
-[ext_resource path="res://Koin.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Musuh.tscn" type="PackedScene" id=30]
+[ext_resource path="res://obyek/koin/Koin.tscn" type="PackedScene" id=29]
+[ext_resource path="res://karakter/Musuh.tscn" type="PackedScene" id=30]
 [ext_resource path="res://assets/Wood and Paper UI/Life Bars/Big Bars/1.png" type="Texture" id=31]
 [ext_resource path="res://assets/Wood and Paper UI/Life Bars/Big Bars/4.png" type="Texture" id=32]
 [ext_resource path="res://assets/Wood and Paper UI/Life Bars/Colors/1.png" type="Texture" id=33]
@@ -41,25 +41,20 @@
 [ext_resource path="res://assets/Wood and Paper UI/Small Banner/1.png" type="Texture" id=39]
 [ext_resource path="res://assets/Wood and Paper UI/Small Banner/13.png" type="Texture" id=40]
 [ext_resource path="res://assets/Folks-Normal.ttf" type="DynamicFontData" id=41]
-[ext_resource path="res://TombolPopup.tres" type="StyleBox" id=42]
+[ext_resource path="res://GUI/TombolPopup.tres" type="StyleBox" id=42]
 [ext_resource path="res://assets/Wood and Paper UI/Prefabs/6.png" type="Texture" id=43]
-[ext_resource path="res://TombolFont.tres" type="DynamicFont" id=44]
-[ext_resource path="res://PopupKalah.gd" type="Script" id=45]
-[ext_resource path="res://PopupMenang.gd" type="Script" id=46]
+[ext_resource path="res://GUI/TombolFont.tres" type="DynamicFont" id=44]
+[ext_resource path="res://GUI/PopupKalah.gd" type="Script" id=45]
+[ext_resource path="res://GUI/PopupMenang.gd" type="Script" id=46]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 64, 10 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 8 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "Lompat",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "Lari",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 11 ) ],
@@ -67,20 +62,25 @@ animations = [ {
 "name": "Diam",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 37 ), ExtResource( 36 ) ],
-"loop": false,
-"name": "Mati",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "LariCepat",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 37 ), ExtResource( 36 ) ],
+"loop": false,
+"name": "Mati",
+"speed": 12.0
+}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": false,
 "name": "Jatuh",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "Lari",
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 13 ) ],
 "loop": false,
@@ -88,17 +88,17 @@ animations = [ {
 "speed": 12.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 10 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 414, 22 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 10
 font_data = ExtResource( 41 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 12
 extra_spacing_bottom = 6
 font_data = ExtResource( 41 )
@@ -127,26 +127,26 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapTembus/StaticBody2D"]
 position = Vector2( 192, 138 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMapTembus/StaticBody2D"]
 position = Vector2( 384, 138 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="Hero" type="KinematicBody2D" parent="."]
-position = Vector2( 92, 96 )
+position = Vector2( 101, 71 )
 collision_mask = 30
 script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Hero"]
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "Mati"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hero"]
 position = Vector2( 0, 2 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="Hero"]
 current = true
@@ -177,7 +177,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaJatuh"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -448,7 +448,7 @@ margin_left = 34.0
 margin_top = 10.0
 margin_right = 60.0
 margin_bottom = 21.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 
@@ -482,7 +482,7 @@ margin_bottom = 104.0
 [node name="Label" type="Label" parent="CanvasLayer/PopupKalah/VBoxContainer"]
 margin_right = 62.0
 margin_bottom = 20.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "Yah, Kalah!"
 
 [node name="TmblUlangi" type="Button" parent="CanvasLayer/PopupKalah/VBoxContainer"]
@@ -543,7 +543,7 @@ custom_constants/separation = 8
 [node name="Label" type="Label" parent="CanvasLayer/PopupMenang/VBoxContainer"]
 margin_right = 74.0
 margin_bottom = 20.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "Yay, Menang!"
 
 [node name="TmblKeluar" type="Button" parent="CanvasLayer/PopupMenang/VBoxContainer"]
@@ -561,10 +561,6 @@ text = "Selanjutnya"
 
 [node name="Tween" type="Tween" parent="CanvasLayer/PopupMenang"]
 
-[connection signal="hero_apdet_health" from="Hero" to="." method="_on_Hero_hero_apdet_health"]
-[connection signal="hero_apdet_koin" from="Hero" to="." method="_on_Hero_hero_apdet_koin"]
-[connection signal="hero_mati" from="Hero" to="CanvasLayer/PopupKalah" method="_on_Hero_hero_mati"]
-[connection signal="hero_menang" from="Hero" to="CanvasLayer/PopupMenang" method="_on_Hero_hero_menang"]
 [connection signal="timeout" from="Hero/Timer" to="Hero" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="ZonaJatuh" to="." method="_on_ZonaJatuh_body_entered"]
 [connection signal="pressed" from="CanvasLayer/PopupKalah/VBoxContainer/TmblUlangi" to="CanvasLayer/PopupKalah" method="_on_TmblUlangi_pressed"]
