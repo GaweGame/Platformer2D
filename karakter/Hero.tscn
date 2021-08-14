@@ -3,7 +3,7 @@
 [ext_resource path="res://karakter/Hero.gd" type="Script" id=1]
 [ext_resource path="res://karakter/HeroTanpaPedang.tres" type="SpriteFrames" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 10 )
 
 [node name="Hero" type="KinematicBody2D"]
@@ -16,7 +16,7 @@ animation = "Diam"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

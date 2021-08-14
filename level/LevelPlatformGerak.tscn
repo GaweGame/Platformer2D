@@ -1,0 +1,181 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://karakter/Hero.tscn" type="PackedScene" id=1]
+[ext_resource path="res://level/TilesetPadat.tres" type="TileSet" id=2]
+[ext_resource path="res://level/TilesetTembus.tres" type="TileSet" id=3]
+[ext_resource path="res://level/LevelPlatformGerak.gd" type="Script" id=4]
+[ext_resource path="res://assets/Palm Tree Island/Background/Additional Water.png" type="Texture" id=5]
+[ext_resource path="res://assets/Palm Tree Island/Background/BG Image.png" type="Texture" id=6]
+[ext_resource path="res://assets/Palm Tree Island/Background/Small Cloud 3.png" type="Texture" id=7]
+[ext_resource path="res://assets/Palm Tree Island/Background/Big Clouds.png" type="Texture" id=8]
+[ext_resource path="res://assets/Palm Tree Island/Background/Small Cloud 1.png" type="Texture" id=9]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( -27.3724, -33.9796, 27.3724, 33.9796, 248, 64, 54.7449, 0, -54.7449, 0, 176, 160, -27.3724, 43.4183, 27.3724, -43.4183, 128, 64, -31.1479, -36.8112, 31.1479, 36.8112, 248, 64 )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48.4405, 15.1905 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "move"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 6 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
+"update": 0,
+"values": [ Vector2( -16, 240 ), Vector2( 48, 240 ), Vector2( -16, 240 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 208, 40 )
+
+[node name="LevelPlatformGerak" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -196616, 4, 0, -196615, 4, 0, -196614, 4, 0, -196613, 4, 0, -196612, 4, 0, -196611, 4, 0, -196610, 4, 0, -196609, 4, 0, -262144, 4, 0, -262143, 4, 0, -262142, 4, 0, -262141, 4, 0, -262140, 4, 0, -262139, 4, 0, -262138, 4, 0, -262137, 4, 0, -262136, 4, 0, -262135, 4, 0, -262134, 4, 0, -262133, 4, 0, -262132, 4, 0, -262131, 4, 0, -262130, 4, 0, -262129, 4, 0, -262128, 4, 0, -262127, 4, 0, -262126, 4, 0, -131080, 4, 0, -131079, 15, 0, -131078, 7, 0, -131077, 7, 0, -131076, 7, 0, -131075, 7, 0, -131074, 7, 0, -131073, 7, 0, -196608, 7, 0, -196607, 7, 0, -196606, 7, 0, -196605, 7, 0, -196604, 7, 0, -196603, 7, 0, -196602, 7, 0, -196601, 7, 0, -196600, 7, 0, -196599, 7, 0, -196598, 7, 0, -196597, 7, 0, -196596, 7, 0, -196595, 7, 0, -196594, 7, 0, -196593, 7, 0, -196592, 7, 0, -196591, 16, 0, -196590, 4, 0, -65544, 4, 0, -65543, 5, 0, -131055, 3, 0, -131054, 4, 0, -8, 4, 0, -7, 5, 0, -65519, 3, 0, -65518, 4, 0, 65528, 4, 0, 65529, 5, 0, 17, 3, 0, 18, 4, 0, 131064, 4, 0, 131065, 5, 0, 65553, 3, 0, 65554, 4, 0, 196600, 4, 0, 196601, 5, 0, 131089, 3, 0, 131090, 4, 0, 262136, 4, 0, 262137, 5, 0, 196618, 0, 0, 196619, 1, 0, 196620, 1, 0, 196621, 1, 0, 196622, 1, 0, 196623, 1, 0, 196624, 1, 0, 196625, 18, 0, 196626, 4, 0, 327672, 4, 0, 327673, 5, 0, 262154, 3, 0, 262155, 4, 0, 262156, 4, 0, 262157, 4, 0, 262158, 4, 0, 262159, 4, 0, 262160, 4, 0, 262161, 4, 0, 262162, 4, 0, 393208, 4, 0, 393209, 5, 0, 327690, 3, 0, 327691, 4, 0, 327692, 4, 0, 327693, 4, 0, 327694, 4, 0, 327695, 4, 0, 327696, 4, 0, 327697, 4, 0, 327698, 4, 0, 458744, 4, 0, 458745, 5, 0, 393226, 3, 0, 393227, 4, 0, 393228, 4, 0, 393229, 4, 0, 393230, 4, 0, 393231, 4, 0, 393232, 4, 0, 393233, 4, 0, 393234, 4, 0, 524280, 4, 0, 524281, 5, 0, 458755, 0, 0, 458756, 1, 0, 458757, 1, 0, 458758, 2, 0, 458762, 3, 0, 458763, 4, 0, 458764, 4, 0, 458765, 4, 0, 458766, 4, 0, 458767, 4, 0, 458768, 4, 0, 458769, 4, 0, 458770, 4, 0, 589816, 4, 0, 589817, 17, 0, 589818, 1, 0, 589819, 1, 0, 589820, 1, 0, 589821, 2, 0, 524291, 3, 0, 524292, 4, 0, 524293, 4, 0, 524294, 5, 0, 524298, 3, 0, 524299, 4, 0, 524300, 4, 0, 524301, 4, 0, 524302, 4, 0, 524303, 4, 0, 524304, 4, 0, 524305, 4, 0, 524306, 4, 0, 655352, 4, 0, 655353, 4, 0, 655354, 4, 0, 655355, 4, 0, 655356, 4, 0, 655357, 5, 0, 589827, 3, 0, 589828, 4, 0, 589829, 4, 0, 589830, 5, 0, 589834, 3, 0, 589835, 4, 0, 589836, 4, 0, 589837, 4, 0, 589838, 4, 0, 589839, 4, 0, 589840, 4, 0, 589841, 4, 0, 589842, 4, 0, 720888, 4, 0, 720889, 4, 0, 720890, 4, 0, 720891, 4, 0, 720892, 4, 0, 720893, 5, 0, 655363, 3, 0, 655364, 4, 0, 655365, 4, 0, 655366, 5, 0, 655370, 3, 0, 655371, 4, 0, 655372, 4, 0, 655373, 4, 0, 655374, 4, 0, 655375, 4, 0, 655376, 4, 0, 655377, 4, 0, 655378, 4, 0, 786424, 4, 0, 786425, 4, 0, 786426, 4, 0, 786427, 4, 0, 786428, 4, 0, 786429, 5, 0, 720899, 3, 0, 720900, 4, 0, 720901, 4, 0, 720902, 5, 0, 720906, 3, 0, 720907, 4, 0, 720908, 4, 0, 720909, 4, 0, 720910, 4, 0, 720911, 4, 0, 720912, 4, 0, 720913, 4, 0, 720914, 4, 0, 851960, 4, 0, 851961, 4, 0, 851962, 4, 0, 851963, 4, 0, 851964, 4, 0, 851965, 5, 0, 786435, 3, 0, 786436, 4, 0, 786437, 4, 0, 786438, 5, 0, 786442, 3, 0, 786443, 4, 0, 786444, 4, 0, 786445, 4, 0, 786446, 4, 0, 786447, 4, 0, 786448, 4, 0, 786449, 4, 0, 786450, 4, 0 )
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 16, 32 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 221.981, 43.396 )
+rotation = 1.94933e-06
+offset = 384.272
+rotate = false
+cubic_interp = false
+
+[node name="PlatformKode" type="RigidBody2D" parent="Path2D/PathFollow2D"]
+rotation = -1.94933e-06
+collision_layer = 2
+mode = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TileMap2" type="TileMap" parent="Path2D/PathFollow2D/PlatformKode"]
+position = Vector2( -48, -16 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 12, 0, 1, 13, 0, 2, 14, 0 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Path2D/PathFollow2D/PlatformKode"]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D"]
+autoplay = "move"
+anims/move = SubResource( 3 )
+
+[node name="PlatformAnimasi" type="RigidBody2D" parent="."]
+position = Vector2( -16, 240 )
+collision_layer = 2
+mode = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TileMap" type="TileMap" parent="PlatformAnimasi"]
+position = Vector2( -47.5595, -15.1905 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 12, 0, 1, 13, 0, 2, 14, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformAnimasi"]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlatformAnimasi"]
+autoplay = "Moving"
+anims/Moving = SubResource( 4 )
+
+[node name="Hero" parent="." instance=ExtResource( 1 )]
+position = Vector2( -168, 232 )
+
+[node name="Camera2D" parent="Hero" index="2"]
+limit_left = -256
+limit_top = -128
+limit_right = 608
+limit_bottom = 416
+
+[node name="DropZone" type="Area2D" parent="."]
+position = Vector2( 128, 464 )
+collision_layer = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropZone"]
+shape = SubResource( 5 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1, 0.2 )
+
+[node name="BG Image" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 176, 64 )
+scale = Vector2( 2.25, 3 )
+texture = ExtResource( 6 )
+
+[node name="Additional Water" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 176, 336 )
+scale = Vector2( 27, 5 )
+texture = ExtResource( 5 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1, 0.5 )
+motion_mirroring = Vector2( 896, 0 )
+
+[node name="Big Clouds" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color( 1, 1, 1, 0.6 )
+position = Vector2( -32, 64 )
+texture = ExtResource( 8 )
+
+[node name="Big Clouds2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color( 1, 1, 1, 0.6 )
+position = Vector2( 416, 64 )
+texture = ExtResource( 8 )
+
+[node name="Small Cloud 1" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color( 1, 1, 1, 0.258824 )
+position = Vector2( 176, 32 )
+texture = ExtResource( 9 )
+
+[node name="Small Cloud 3" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color( 1, 1, 1, 0.576471 )
+position = Vector2( -64, -16 )
+texture = ExtResource( 7 )
+
+[connection signal="body_entered" from="DropZone" to="." method="_on_DropZone_body_entered"]
+
+[editable path="Hero"]
