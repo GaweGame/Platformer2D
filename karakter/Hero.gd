@@ -30,8 +30,6 @@ func _input(event):
 		sedang_serang = false
 
 func _physics_process(delta):
-	var is_jumping = false
-	
 	kecepatan.y = kecepatan.y + gravitasi
 	
 	if(not sedang_terluka and Input.is_action_pressed("gerak_kanan")):
@@ -44,14 +42,10 @@ func _physics_process(delta):
 	
 	if(not sedang_terluka and Input.is_action_pressed("lompat") and is_on_floor()):
 		kecepatan.y = laju_lompat
-		is_jumping = true
-	
-	var snap = Vector2.ZERO if is_jumping else (Vector2.DOWN * 64)
 	
 	kecepatan.x = lerp(kecepatan.x, 0, 0.2)
-	kecepatan = move_and_slide_with_snap(kecepatan, snap, Vector2.UP)
+	kecepatan = move_and_slide(kecepatan, Vector2.UP)
 	
-	print("KEC: ", kecepatan, " SNAP: ", snap)
 	if not sedang_terluka and not sedang_serang:
 		update_animasi()
 
