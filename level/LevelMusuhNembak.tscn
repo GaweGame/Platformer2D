@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://karakter/Meriam.tscn" type="PackedScene" id=1]
 [ext_resource path="res://karakter/Hero.tscn" type="PackedScene" id=2]
 [ext_resource path="res://level/TilesetPadat.tres" type="TileSet" id=3]
 [ext_resource path="res://assets/Palm Tree Island/Background/BG Image.png" type="Texture" id=4]
@@ -26,16 +25,6 @@ limit_left = -96
 limit_top = -96
 limit_right = 416
 limit_bottom = 256
-
-[node name="Meriam" parent="." instance=ExtResource( 1 )]
-position = Vector2( 192, 148 )
-
-[node name="Meriam2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 336, 116 )
-
-[node name="Meriam3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 4, 20 )
-arah = 1
 
 [node name="Pedang" parent="." instance=ExtResource( 7 )]
 position = Vector2( -44, 20 )
