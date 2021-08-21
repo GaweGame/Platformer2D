@@ -13,15 +13,18 @@ onready var raycast = $Pivot/RayCast2D
 export var stamina = 3
 
 func _ready():
-	pass
+	pivot.scale.x = pivot.scale.x * arah
 
 func _physics_process(delta):
 	kecepatan.y += gravitasi
 	
-	if is_on_wall() or not raycast.is_colliding():
+	var detect_wall = is_on_wall()
+	var detect_cliff = not raycast.is_colliding()
+	
+	if detect_wall or detect_cliff:
 		arah = arah * -1
 		pivot.scale.x = pivot.scale.x * -1
-	
+		
 	kecepatan.x = laju * arah
 	
 	if not apakah_terluka:
