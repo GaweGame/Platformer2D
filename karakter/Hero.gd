@@ -50,7 +50,7 @@ func _physics_process(delta):
 		kecepatan.y = laju_lompat
 		is_jumping = true
 	
-	var snap = Vector2.ZERO if is_jumping else (Vector2.DOWN * 64)
+	var snap = Vector2.ZERO if is_jumping else (Vector2.DOWN * 8)
 	
 	kecepatan.x = lerp(kecepatan.x, 0, 0.2)
 	kecepatan = move_and_slide_with_snap(kecepatan, snap, Vector2.UP)
