@@ -78,6 +78,7 @@ states/Diam/position = Vector2( 180.333, 28.3333 )
 states/Tembak/node = SubResource( 5 )
 states/Tembak/position = Vector2( 432.333, 28.6296 )
 transitions = [ "Diam", "Tembak", SubResource( 6 ), "Tembak", "Diam", SubResource( 7 ) ]
+start_node = "Diam"
 graph_offset = Vector2( -221, -88 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=9]

@@ -12,7 +12,6 @@ onready var statemachine = animtree["parameters/playback"]
 onready var bola = preload("res://karakter/BolaMeriam.tscn")
 
 func _ready():
-	statemachine.start("Diam")
 	cek_arah()
 
 func _process(delta):
