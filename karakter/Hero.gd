@@ -47,11 +47,8 @@ func _physics_process(delta):
 		lari_cepat()
 	
 	if(not sedang_terluka and Input.is_action_pressed("lompat") and is_on_floor()):
-		if not is_jumping and Input.is_action_pressed("turun"):
-			position.y += 1
-		else:
-			kecepatan.y = laju_lompat
-			is_jumping = true
+		kecepatan.y = laju_lompat
+		is_jumping = true
 	
 	var snap = Vector2.ZERO if is_jumping else (Vector2.DOWN * 8)
 	

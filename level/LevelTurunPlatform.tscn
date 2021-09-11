@@ -1,23 +1,56 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://level/TilesetSatuArah.tres" type="TileSet" id=1]
+[ext_resource path="res://level/TilesetPadat.tres" type="TileSet" id=1]
 [ext_resource path="res://karakter/Hero.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Palm Tree Island/Background/Additional Sky.png" type="Texture" id=3]
+[ext_resource path="res://assets/Palm Tree Island/Background/BG Image.png" type="Texture" id=4]
+[ext_resource path="res://assets/Palm Tree Island/Background/Additional Water.png" type="Texture" id=5]
 
 [node name="LevelTurunPlatform" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
+collision_layer = 2
+collision_mask = 5
 format = 1
-tile_data = PoolIntArray( -65538, 4, 0, -65537, 4, 0, -131072, 4, 0, -131071, 4, 0, -131070, 4, 0, -131069, 4, 0, -131068, 4, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, -131062, 4, 0, -131061, 4, 0, -131060, 4, 0, -2, 4, 0, -65524, 4, 0, 65534, 4, 0, 12, 4, 0, 131070, 4, 0, 65548, 4, 0, 196606, 4, 0, 131077, 12, 0, 131078, 13, 0, 131079, 13, 0, 131080, 13, 0, 131081, 14, 0, 131084, 4, 0, 262142, 4, 0, 196620, 4, 0, 327678, 4, 0, 262156, 4, 0, 393214, 4, 0, 327684, 12, 0, 327685, 13, 0, 327686, 13, 0, 327687, 14, 0, 327692, 4, 0, 458750, 4, 0, 393228, 4, 0, 524286, 4, 0, 458764, 4, 0, 589822, 4, 0, 589823, 4, 0, 524288, 4, 0, 524289, 4, 0, 524290, 4, 0, 524291, 4, 0, 524292, 4, 0, 524293, 4, 0, 524294, 4, 0, 524295, 4, 0, 524296, 4, 0, 524297, 4, 0, 524298, 4, 0, 524299, 4, 0, 524300, 4, 0, 655358, 4, 0, 655359, 4, 0, 589824, 4, 0, 589825, 4, 0, 589826, 4, 0, 589827, 4, 0, 589828, 4, 0, 589829, 4, 0, 589830, 4, 0, 589831, 4, 0, 589832, 4, 0, 589833, 4, 0, 589834, 4, 0, 589835, 4, 0, 589836, 4, 0 )
+tile_data = PoolIntArray( -65538, 15, 0, -65537, 7, 0, -131072, 7, 0, -131071, 7, 0, -131070, 7, 0, -131069, 7, 0, -131068, 7, 0, -131067, 7, 0, -131066, 7, 0, -131065, 7, 0, -131064, 7, 0, -131063, 7, 0, -131062, 7, 0, -131061, 7, 0, -131060, 16, 0, -2, 5, 0, -65524, 3, 0, 65534, 5, 0, 12, 3, 0, 131070, 5, 0, 65548, 3, 0, 196606, 5, 0, 131077, 12, 0, 131078, 13, 0, 131079, 13, 0, 131080, 13, 0, 131081, 14, 0, 131084, 3, 0, 262142, 5, 0, 196620, 3, 0, 327678, 5, 0, 262156, 3, 0, 393214, 5, 0, 327684, 12, 0, 327685, 13, 0, 327686, 13, 0, 327687, 14, 0, 327692, 3, 0, 458750, 5, 0, 393228, 3, 0, 524286, 5, 0, 458764, 3, 0, 589822, 17, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 18, 0, 655358, 4, 0, 655359, 4, 0, 589824, 4, 0, 589825, 4, 0, 589826, 4, 0, 589827, 4, 0, 589828, 4, 0, 589829, 4, 0, 589830, 4, 0, 589831, 4, 0, 589832, 4, 0, 589833, 4, 0, 589834, 4, 0, 589835, 4, 0, 589836, 4, 0 )
 
 [node name="Hero" parent="." instance=ExtResource( 2 )]
-position = Vector2( 52, 188 )
+position = Vector2( 60, 172 )
 
 [node name="Camera2D" parent="Hero" index="2"]
 limit_left = -64
 limit_top = -64
 limit_right = 416
 limit_bottom = 320
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Additional Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 176, 26 )
+scale = Vector2( 15, 5.625 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BG Image" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 176, 180 )
+scale = Vector2( 1.25, 1 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Additional Water" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 176, 282 )
+scale = Vector2( 15, 2.375 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [editable path="Hero"]
