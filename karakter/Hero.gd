@@ -14,6 +14,7 @@ var health = 50
 export var bawa_pedang = false
 var sedang_serang = false
 var animasi_dengan_pedang = preload("res://karakter/HeroDenganPedang.tres")
+var partikel_hero = preload("res://karakter/PartikelHero.tscn")
 
 onready var sprite = $Sprite
 
@@ -50,13 +51,19 @@ func _physics_process(delta):
 		if not is_jumping and Input.is_action_pressed("turun"):
 			position.y += 1
 		else:
+			keluarkan_partikel("lompat")
 			kecepatan.y = laju_lompat
 			is_jumping = true
 	
 	var snap = Vector2.ZERO if is_jumping else (Vector2.DOWN * 8)
 	
+	var kecepatan_jatuh = kecepatan.y
+	
 	kecepatan.x = lerp(kecepatan.x, 0, 0.2)
 	kecepatan = move_and_slide_with_snap(kecepatan, snap, Vector2.UP)
+	
+	if kecepatan.y - kecepatan_jatuh < -gravitasi:
+		keluarkan_partikel("jatuh")
 	
 	if not sedang_terluka and not sedang_serang:
 		update_animasi()
@@ -132,3 +139,15 @@ func ambil_pedang():
 	if not bawa_pedang:
 		bawa_pedang = true
 		sprite.frames = animasi_dengan_pedang
+
+func keluarkan_partikel(jenis):
+	var _partikel_hero = partikel_hero.instance()
+	_partikel_hero.play(jenis)
+	_partikel_hero.flip_h = sprite.flip_h
+	_partikel_hero.global_position = global_position
+	get_tree().current_scene.add_child(_partikel_hero)
+
+
+func _on_Sprite_frame_changed():
+	if sprite.animation == "Lari" and sprite.frame == 2:
+		keluarkan_partikel("lari")

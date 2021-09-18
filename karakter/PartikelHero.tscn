@@ -1,0 +1,45 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Fall 02.png" type="Texture" id=1]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Jump 05.png" type="Texture" id=2]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Run 02.png" type="Texture" id=3]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Jump 04.png" type="Texture" id=4]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Run 05.png" type="Texture" id=5]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Fall 04.png" type="Texture" id=6]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Jump 03.png" type="Texture" id=7]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Run 03.png" type="Texture" id=8]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Fall 01.png" type="Texture" id=9]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Fall 05.png" type="Texture" id=10]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Fall 03.png" type="Texture" id=11]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Run 01.png" type="Texture" id=12]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Run 04.png" type="Texture" id=13]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Jump 06.png" type="Texture" id=14]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Jump 01.png" type="Texture" id=15]
+[ext_resource path="res://assets/Captain Clown Nose/Dust Particles/Jump 02.png" type="Texture" id=16]
+[ext_resource path="res://karakter/PartikelHero.gd" type="Script" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 1 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "jatuh",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "lompat",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "lari",
+"speed": 12.0
+} ]
+
+[node name="PartikelHero" type="AnimatedSprite"]
+frames = SubResource( 1 )
+animation = "lari"
+offset = Vector2( 0, 2 )
+script = ExtResource( 17 )
+
+[connection signal="animation_finished" from="." to="." method="_on_PartikelHero_animation_finished"]

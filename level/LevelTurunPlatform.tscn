@@ -53,4 +53,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[connection signal="frame_changed" from="Hero/Sprite" to="Hero" method="_on_Sprite_frame_changed"]
+
 [editable path="Hero"]
